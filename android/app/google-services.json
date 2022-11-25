@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "936132564547",
+    "project_id": "flutter-bm-shopping-app",
+    "storage_bucket": "flutter-bm-shopping-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936132564547:android:c627272ccaec8d2b6926f6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ecom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936132564547-8sg0dq78lvpi9ok2tvlesama6djtnbop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATSl32uEC2kNzetLcqU9FXCWuSWXPgJ6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936132564547-8sg0dq78lvpi9ok2tvlesama6djtnbop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936132564547:android:831db60e86ff72ec6926f6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ecom_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936132564547-8sg0dq78lvpi9ok2tvlesama6djtnbop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATSl32uEC2kNzetLcqU9FXCWuSWXPgJ6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936132564547-8sg0dq78lvpi9ok2tvlesama6djtnbop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
