@@ -272,6 +272,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Profile'),
+      backgroundColor: Color(0xFFD9D8D7),
       bottomNavigationBar: CustomNavBar(screen: Profile.routeName),
       body: SingleChildScrollView(
         child: Padding(
@@ -290,7 +291,7 @@ class _ProfileState extends State<Profile> {
                   _showImageDialog();
                 },
                 child: CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor: Color(0xFF403E3D),
                   minRadius: 80,
                   child: CircleAvatar(
                     radius: 75,
@@ -383,7 +384,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 39, 39, 39),
+                    primary: Color(0xFF403E3D),
                     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   ),
                 ),
@@ -393,5 +394,5 @@ class _ProfileState extends State<Profile> {
         ),
       ),
     );
-  }
+  } 
 }

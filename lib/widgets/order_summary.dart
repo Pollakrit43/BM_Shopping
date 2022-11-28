@@ -70,7 +70,7 @@ class OrderSummary extends StatelessWidget {
                     ),
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Color(0xFF403E3D),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(

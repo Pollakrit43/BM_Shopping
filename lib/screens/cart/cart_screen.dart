@@ -18,6 +18,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD9D8D7),
       appBar: CustomAppBar(title: 'Cart'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<CartBloc, CartState>(
@@ -51,7 +52,7 @@ class CartScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/');
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.black,
+                            primary: Color(0xFF403E3D),
                             shape: RoundedRectangleBorder(),
                             elevation: 0,
                           ),
@@ -60,7 +61,7 @@ class CartScreen extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5!
-                                .copyWith(color: Colors.white),
+                                .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                       ],

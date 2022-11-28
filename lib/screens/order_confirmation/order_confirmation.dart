@@ -20,6 +20,7 @@ class OrderConfirmation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD9D8D7),
       appBar: CustomAppBar(title: 'Order Confirmation'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       extendBodyBehindAppBar: true,
@@ -29,7 +30,7 @@ class OrderConfirmation extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  color: Color.fromARGB(255, 88, 55, 43),
+                  color: Color(0xFF73716F),
                   width: double.infinity,
                   height: 350,
                 ),

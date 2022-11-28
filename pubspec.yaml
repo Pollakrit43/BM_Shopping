@@ -55,6 +55,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.11.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/applogo.png"
 
   hive_generator: ^2.0.0
   build_runner: ^2.3.2

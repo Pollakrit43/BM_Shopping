@@ -75,7 +75,7 @@ class _InfoLoginState extends State<InfoLogin> {
                   );
                 },
                 child: Text(
-                  'Forget Password!!',
+                  'Forget Password',
                   style: TextStyle(
                     color: Colors.black54,
                     fontWeight: FontWeight.bold,

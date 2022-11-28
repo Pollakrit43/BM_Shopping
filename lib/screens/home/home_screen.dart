@@ -23,6 +23,7 @@ class HomeScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: 'BM Shopping',
         ),
+        backgroundColor: Color(0xFFD9D8D7),
         bottomNavigationBar: CustomNavBar(screen: routeName),
         body: SingleChildScrollView(
           child: Column(

@@ -23,6 +23,7 @@ class CatalogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD9D8D7),
       appBar: CustomAppBar(title: category.name),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<ProductBloc, ProductState>(

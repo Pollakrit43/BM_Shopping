@@ -25,6 +25,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD9D8D7),
       appBar: CustomAppBar(title: product.name),
       bottomNavigationBar: CustomNavBar(
         screen: routeName,
@@ -60,7 +61,7 @@ class ProductScreen extends StatelessWidget {
                       width: MediaQuery.of(context).size.width - 10,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Color(0xFF73716F),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -73,14 +74,14 @@ class ProductScreen extends StatelessWidget {
                               style: Theme.of(context)
                                   .textTheme
                                   .headline5!
-                                  .copyWith(color: Colors.white),
+                                  .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                             Text(
                               '\฿${product.price}',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline5!
-                                  .copyWith(color: Colors.white),
+                                  .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
                             ),
                           ],
                         ),
