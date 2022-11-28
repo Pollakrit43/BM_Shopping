@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ecom/blocs/cart/cart_bloc.dart';
 import 'package:flutter_ecom/models/models.dart';
 import 'package:flutter_ecom/widgets/custom_appbar.dart';
 import 'package:flutter_ecom/widgets/custom_navbar.dart';
@@ -67,6 +70,46 @@ class OrderConfirmation extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 60.0,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 0, 174, 255)),
+                      child: Text(
+                        'Go Home Page',
+                        style: Theme.of(context).textTheme.headline3,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                      },
+                    ),
+                  ),
+                  // Text(
+                  //   'Order Details',
+                  //   style: Theme.of(context).textTheme.headline3,
+                  // ),
+                  // Divider(
+                  //   thickness: 2,
+                  // ),
+                  // SizedBox(
+                  //   height: 5,
+                  // ),
+                  // ListView(
+                  //   shrinkWrap: true,
+                  //   padding: EdgeInsets.zero,
+                  //   physics: NeverScrollableScrollPhysics(),
+                  //   children: [
+                  //     ProductCard.summary(
+                  //       product: Product.products[0],
+                  //       quantity: 2,
+                  //     ),
+                  //     ProductCard.summary(
+                  //       product: Product.products[0],
+                  //       quantity: 2,
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
@@ -76,4 +119,3 @@ class OrderConfirmation extends StatelessWidget {
     );
   }
 }
-
