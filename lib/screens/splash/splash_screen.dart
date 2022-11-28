@@ -47,13 +47,13 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
           ),
           Container(
-            color: Color.fromARGB(255, 68, 43, 35),
+            
             child: Text(
               'BM Shopping',
               style: Theme.of(context)
                   .textTheme
                   .headline2!
-                  .copyWith(color: Colors.white),
+                  .copyWith(color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
           SizedBox(

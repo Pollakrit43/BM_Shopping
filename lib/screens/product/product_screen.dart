@@ -105,6 +105,7 @@ class ProductScreen extends StatelessWidget {
                   ],
                 ),
                 ExpansionTile(
+                  initiallyExpanded: true,
                   title: Text(
                     "Delivery Information",
                     style: Theme.of(context).textTheme.headline3,
@@ -112,7 +113,7 @@ class ProductScreen extends StatelessWidget {
                   children: <Widget>[
                     ListTile(
                       title: Text(
-                        'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.',
+                        'ค่าส่ง 20 บาท ตลอด ไม่คิดพิ่มจ้าา',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     )
