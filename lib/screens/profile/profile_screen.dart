@@ -274,125 +274,126 @@ class _ProfileState extends State<Profile> {
       appBar: CustomAppBar(title: 'Profile'),
       backgroundColor: Color(0xFFD9D8D7),
       bottomNavigationBar: CustomNavBar(screen: Profile.routeName),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 60,
-            right: 30,
-            left: 30,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  //_showImageDialog
-                  _showImageDialog();
-                },
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.width * 0.015,
+          right: MediaQuery.of(context).size.width * 0.05,
+          left: MediaQuery.of(context).size.width * 0.05,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                //_showImageDialog
+                _showImageDialog();
+              },
+              child: CircleAvatar(
+                backgroundColor: Color(0xFF403E3D),
+                minRadius: 80,
                 child: CircleAvatar(
-                  backgroundColor: Color(0xFF403E3D),
-                  minRadius: 80,
-                  child: CircleAvatar(
-                    radius: 75,
-                    backgroundImage: imageXFile == null
-                        ? NetworkImage(image!)
-                        : Image.file(imageXFile!).image,
-                  ),
+                  radius: 75,
+                  backgroundImage: imageXFile == null
+                      ? NetworkImage(image!)
+                      : Image.file(imageXFile!).image,
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Name : ' + name!,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.05,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Name : ' + name!,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.bold,
                   ),
-                  IconButton(
-                    onPressed: () {
-                      _displayNameTextInputDialog(context);
-                    },
-                    icon: Icon(Icons.edit),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Email : ' + email!,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Phone : ' + phoneNo!,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      _displayPhoneTextInputDialog(context);
-                    },
-                    icon: Icon(Icons.edit),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 100,
-              ),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
+                ),
+                IconButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => LoginScreen(),
-                      ),
-                    );
+                    _displayNameTextInputDialog(context);
                   },
-                  child: Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF403E3D),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  icon: Icon(Icons.edit),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.05,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Email : ' + email!,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.05,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Phone : ' + phoneNo!,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    _displayPhoneTextInputDialog(context);
+                  },
+                  icon: Icon(Icons.edit),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.2,
+            ),
+            SizedBox(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.width * 0.15,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => LoginScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Logout',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF403E3D),
+                  // padding: EdgeInsets.symmetric(
+                  //   horizontal: MediaQuery.of(context).size.width * 0.015,
+                  //   vertical: MediaQuery.of(context).size.width * 0.015,
+                  // ),
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
-  } 
+  }
 }

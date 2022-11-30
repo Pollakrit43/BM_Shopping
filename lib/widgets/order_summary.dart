@@ -16,9 +16,9 @@ class OrderSummary extends StatelessWidget {
                 thickness: 2,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 50,
-                  vertical: 10,
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.05,
+                  vertical: MediaQuery.of(context).size.width * 0.04,
                 ),
                 child: Column(
                   children: [
@@ -27,27 +27,47 @@ class OrderSummary extends StatelessWidget {
                       children: [
                         Text(
                           'Subtotal',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Text(
                           '\฿${state.cart.subtotalString}',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: 10,
+                      height: MediaQuery.of(context).size.width * 0.015,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Delivery',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Text(
                           '\฿${state.cart.deliveryFeeString}',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
@@ -57,8 +77,8 @@ class OrderSummary extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
+                    width: MediaQuery.of(context).size.width * 1,
+                    height: MediaQuery.of(context).size.width * 0.15,
                     decoration: BoxDecoration(
                       color: Colors.black.withAlpha(50),
                     ),
@@ -66,32 +86,38 @@ class OrderSummary extends StatelessWidget {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.all(
-                      5.0,
+                      MediaQuery.of(context).size.width * 0.015,
                     ),
-                    height: 50,
+                    height: MediaQuery.of(context).size.width * 0.12,
                     decoration: BoxDecoration(
                       color: Color(0xFF403E3D),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.05,
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             'Total',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5!
-                                .copyWith(color: Colors.white),
+                            style: TextStyle(
+                              fontFamily: 'Avenir',
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             '\$${state.cart.totalString}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5!
-                                .copyWith(color: Colors.white),
+                            style: TextStyle(
+                              fontFamily: 'Avenir',
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.04,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),

@@ -200,28 +200,31 @@ class ProductInformation extends StatelessWidget {
               child: Text(
                 product.name,
                 maxLines: 1,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(color: fontColor),
+                style: TextStyle(
+                  fontFamily: 'Avenir',
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  color: fontColor,
+                ),
               ),
             ),
             Text(
               '\฿${product.price} ',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline6!
-                  .copyWith(color: fontColor),
+              style: TextStyle(
+                fontFamily: 'Avenir',
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+                color: fontColor,
+              ),
             ),
           ],
         ),
         isOrderSummary
             ? Text(
                 'Qty. $quantity',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4!
-                    .copyWith(color: fontColor),
+                style: TextStyle(
+                  fontFamily: 'Avenir',
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  color: fontColor,
+                ),
               )
             : const SizedBox(),
       ],
@@ -339,25 +342,58 @@ class ProductBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: adjWidth - 10,
-      height: 80,
-      margin: const EdgeInsets.only(bottom: 5),
+      width: adjWidth - MediaQuery.of(context).size.width * 0.05,
+      height: MediaQuery.of(context).size.width * 0.2,
+      margin: EdgeInsets.only(bottom: 5),
       alignment: Alignment.bottomCenter,
-      decoration: BoxDecoration(color: Colors.black.withAlpha(50)),
+      decoration: BoxDecoration(
+        color: Colors.black.withAlpha(50),
+      ),
       child: Container(
-        width: adjWidth - 20,
-        height: 70,
-        margin: const EdgeInsets.only(bottom: 5),
+        width: adjWidth - MediaQuery.of(context).size.width * 0.05,
+        height: MediaQuery.of(context).size.width * 0.2,
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.width * 0.01,
+        ),
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(color: Colors.black),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(
+            MediaQuery.of(context).size.width * 0.02,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [...widgets],
           ),
         ),
       ),
+      // width: MediaQuery.of(context).size.width * 0.4,
+      // height: MediaQuery.of(context).size.width * 0.2,
+      // margin: EdgeInsets.only(
+      //   bottom: MediaQuery.of(context).size.width * 0.01,
+      // ),
+      // alignment: Alignment.bottomCenter,
+      // decoration: BoxDecoration(
+      //   color: Colors.black.withAlpha(50),
+      // ),
+      // child: Container(
+      //   width: MediaQuery.of(context).size.width * 0.4,
+      //   height: MediaQuery.of(context).size.width * 0.2,
+      //   margin: EdgeInsets.only(
+      //     bottom: MediaQuery.of(context).size.width * 0.01,
+      //   ),
+      //   alignment: Alignment.bottomCenter,
+      //   decoration: BoxDecoration(color: Colors.black),
+      //   child: Padding(
+      //     padding: EdgeInsets.all(
+      //       MediaQuery.of(context).size.width * 0.02,
+      //     ),
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [...widgets],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

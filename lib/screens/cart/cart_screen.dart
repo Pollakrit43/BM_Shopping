@@ -32,56 +32,62 @@ class CartScreen extends StatelessWidget {
           }
           if (state is CartLoaded) {
             Map cart = state.cart.productQuantity(state.cart.products);
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                  vertical: 10.0,
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          state.cart.freeDeliveryString,
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/');
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xFF403E3D),
-                            shape: RoundedRectangleBorder(),
-                            elevation: 0,
-                          ),
-                          child: Text(
-                            'Add More Items',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5!
-                                .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    SizedBox(
-                      height: 400,
-                      child: ListView.builder(
-                        itemCount: cart.keys.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return ProductCard.cart(
-                            product: cart.keys.elementAt(index),
-                            quantity: cart.values.elementAt(index),
-                          );
-                        },
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.02,
+                vertical: MediaQuery.of(context).size.width * 0.015,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        state.cart.freeDeliveryString,
+                         style: TextStyle(
+                                fontFamily: 'Avenir',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: Colors.black,
+                              ),
                       ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFF403E3D),
+                          shape: RoundedRectangleBorder(),
+                          elevation: 0,
+                        ),
+                        child: Text(
+                          'Add More Items',
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.width * 0.90,
+                    child: ListView.builder(
+                      itemCount: cart.keys.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ProductCard.cart(
+                          product: cart.keys.elementAt(index),
+                          quantity: cart.values.elementAt(index),
+                        );
+                      },
                     ),
-                    OrderSummary(),
-                  ],
-                ),
+                  ),
+                  OrderSummary(),
+                ],
               ),
             );
           }

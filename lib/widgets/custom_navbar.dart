@@ -1,12 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecom/blocs/cart/cart_bloc.dart';
 import 'package:flutter_ecom/blocs/checkout/checkout_bloc.dart';
 import 'package:flutter_ecom/blocs/wishlist/wishlist_bloc.dart';
 import 'package:flutter_ecom/models/models.dart';
-import 'package:flutter_ecom/widgets/widget.dart';
 
 class CustomNavBar extends StatelessWidget {
   final String screen;
@@ -101,7 +98,9 @@ class AddToCartNavBar extends StatelessWidget {
                       content: Text('Added to your Wishlist!'),
                     ),
                   );
-                  context.read<WishlistBloc>().add(AddProductToWishlist(product));
+                  context
+                      .read<WishlistBloc>()
+                      .add(AddProductToWishlist(product));
                 },
               );
             }
@@ -188,6 +187,9 @@ class OrderNowNavBar extends StatelessWidget {
               return ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.white),
                 onPressed: () {
+                  // context
+                  //     .read<CheckoutBloc>()
+                  //     .add(ConfirmCheckout(checkout: state.checkout));
                   Navigator.pushNamed(context, '/order-confirmation');
                 },
                 child: Text(

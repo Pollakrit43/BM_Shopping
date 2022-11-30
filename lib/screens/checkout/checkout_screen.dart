@@ -21,7 +21,9 @@ class CheckoutScreen extends StatelessWidget {
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(
+            MediaQuery.of(context).size.width * 0.05,
+          ),
           child: BlocBuilder<CheckoutBloc, CheckoutState>(
             builder: (context, state) {
               if (state is CheckoutLoading) {
@@ -36,7 +38,12 @@ class CheckoutScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Customer information',
-                      style: Theme.of(context).textTheme.headline3,
+                      style: TextStyle(
+                        fontFamily: 'Avenir',
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     CustomTextFormField(
                       title: 'Email',
@@ -54,10 +61,17 @@ class CheckoutScreen extends StatelessWidget {
                             .add(UpdateCheckout(fullName: value));
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.05,
+                    ),
                     Text(
                       'Delivery information',
-                      style: Theme.of(context).textTheme.headline3,
+                      style: TextStyle(
+                        fontFamily: 'Avenir',
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     CustomTextFormField(
                       title: 'Address',
@@ -91,9 +105,11 @@ class CheckoutScreen extends StatelessWidget {
                             .add(UpdateCheckout(zipCode: value));
                       },
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.05,
+                    ),
                     Container(
-                      height: 60,
+                      height: MediaQuery.of(context).size.width * 0.18,
                       alignment: Alignment.bottomCenter,
                       decoration: BoxDecoration(color: Color(0xFF403E3D)),
                       child: Row(
@@ -109,19 +125,22 @@ class CheckoutScreen extends StatelessWidget {
                               },
                               child: Text(
                                 'Select a payment',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline3!
-                                    .copyWith(color: Colors.white),
+                                style: TextStyle(
+                                  fontFamily: 'Avenir',
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.05,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
                           IconButton(
                             onPressed: () {
-                               Navigator.pushNamed(
-                                  context,
-                                  '/payment-selection',
-                                );
+                              Navigator.pushNamed(
+                                context,
+                                '/payment-selection',
+                              );
                             },
                             icon: Icon(
                               Icons.arrow_forward,

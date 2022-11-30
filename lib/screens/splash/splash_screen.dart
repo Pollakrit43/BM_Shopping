@@ -37,44 +37,58 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Image(
-              image: AssetImage('assets/images/Logo.png'),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Colors.white,
+          Colors.grey,
+        ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+      ),
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Image(
+                image: AssetImage('assets/images/Logo.png'),
+              ),
             ),
-          ),
-          Container(
-            
-            child: Text(
-              'BM Shopping',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2!
-                  .copyWith(color: Color.fromARGB(255, 0, 0, 0)),
-            ),
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          CircularProgressIndicator(),
-          SizedBox(
-            height: 180,
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  'Create By : BB',
-                  style: Theme.of(context).textTheme.headline3,
+            Container(
+              child: Text(
+                'BM Shopping',
+                style: TextStyle(
+                  fontFamily: 'Avenir',
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.2,
+            ),
+            CircularProgressIndicator(),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.2,
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Create By : BB',
+                    style: TextStyle(
+                      fontFamily: 'Avenir',
+                      fontSize: MediaQuery.of(context).size.width * 0.05,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

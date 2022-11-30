@@ -20,18 +20,20 @@ class ProductCarousel extends StatelessWidget {
     return Align(
       alignment: Alignment.topLeft,
       child: SizedBox(
-        height: 165,
+        height: MediaQuery.of(context).size.height * 0.2,
         child: ListView.builder(
           shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20.0,
-            vertical: 10.0,
+          padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.height * 0.005,
+            vertical: MediaQuery.of(context).size.height * 0.005,
           ),
           scrollDirection: Axis.horizontal,
           itemCount: products.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(right: 5.0),
+              padding: EdgeInsets.only(
+                right: MediaQuery.of(context).size.height * 0.005,
+              ),
               child: ProductCard.catalog(product: products[index]),
             );
           },

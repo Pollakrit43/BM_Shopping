@@ -25,73 +25,77 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Color(0xFFD9D8D7),
         bottomNavigationBar: CustomNavBar(screen: routeName),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              BlocBuilder<CategoryBloc, CategoryState>(
-                builder: (context, state) {
-                  if (state is CategoryLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (state is CategoryLoaded) {
-                    return CarouselSlider(
-                      options: CarouselOptions(
-                        aspectRatio: 1.5,
-                        viewportFraction: 0.9,
-                        enlargeCenterPage: true,
-                        enlargeStrategy: CenterPageEnlargeStrategy.height,
-                      ),
-                      items: state.categories
-                          .map((category) => CarouselCard(category: category))
-                          .toList(),
-                    );
-                  } else {
-                    return Text('Something went wrong.');
-                  }
-                },
-              ),
-              SectionTitle(title: 'Recommended'),
-              BlocBuilder<ProductBloc, ProductState>(
-                builder: (context, state) {
-                  if (state is ProductLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (state is ProductLoaded) {
-                    return ProductCarousel(
-                      products: state.products
-                          .where((product) => product.isRecommended)
-                          .toList(),
-                    );
-                  } else {
-                    return Text('Something went wrong.');
-                  }
-                },
-              ),
-              SectionTitle(title: 'Most popular'),
-              BlocBuilder<ProductBloc, ProductState>(
-                builder: (context, state) {
-                  if (state is ProductLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (state is ProductLoaded) {
-                    return ProductCarousel(
-                      products: state.products
-                          .where((product) => product.isPopular)
-                          .toList(),
-                    );
-                  } else {
-                    return Text('Something went wrong.');
-                  }
-                },
-              ),
-            ],
-          ),
+        body: Column(
+          children: [
+            BlocBuilder<CategoryBloc, CategoryState>(
+              builder: (context, state) {
+                if (state is CategoryLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is CategoryLoaded) {
+                  return CarouselSlider(
+                    options: CarouselOptions(
+                      aspectRatio: MediaQuery.of(context).size.width * 0.005,
+                      viewportFraction: 1,
+                      enlargeCenterPage: true,
+                      enlargeStrategy: CenterPageEnlargeStrategy.height,
+                    ),
+                    items: state.categories
+                        .map((category) => CarouselCard(category: category))
+                        .toList(),
+                  );
+                } else {
+                  return Text('Something went wrong.');
+                }
+              },
+            ),
+            SectionTitle(title: 'Recommended'),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.02,
+            ),
+            BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) {
+                if (state is ProductLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is ProductLoaded) {
+                  return ProductCarousel(
+                    products: state.products
+                        .where((product) => product.isRecommended)
+                        .toList(),
+                  );
+                } else {
+                  return Text('Something went wrong.');
+                }
+              },
+            ),
+            SectionTitle(title: 'Most popular'),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.02,
+            ),
+            BlocBuilder<ProductBloc, ProductState>(
+              builder: (context, state) {
+                if (state is ProductLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                if (state is ProductLoaded) {
+                  return ProductCarousel(
+                    products: state.products
+                        .where((product) => product.isPopular)
+                        .toList(),
+                  );
+                } else {
+                  return Text('Something went wrong.');
+                }
+              },
+            ),
+          ],
         ),
       ),
     );

@@ -31,13 +31,17 @@ class WishlistScreen extends StatelessWidget {
             }
             if (state is WishlistLoaded) {
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.015,
+                ),
                 child: GridView.builder(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 8.0, vertical: 16.0),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                    vertical: MediaQuery.of(context).size.width * 0.015,
+                  ),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
-                    childAspectRatio: 2.25,
+                    childAspectRatio: 2,
                   ),
                   itemCount: state.wishlist.products.length,
                   itemBuilder: (BuildContext context, int index) {

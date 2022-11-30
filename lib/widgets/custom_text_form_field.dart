@@ -13,14 +13,21 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(
+        MediaQuery.of(context).size.width * 0.02,
+      ),
       child: Row(
         children: [
           SizedBox(
-            width: 75,
+            width: MediaQuery.of(context).size.width * 0.2,
             child: Text(
               title,
-              style: Theme.of(context).textTheme.bodyText1,
+               style: TextStyle(
+                      fontFamily: 'Avenir',
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      color: Colors.black,
+                      // fontWeight: FontWeight.bold,
+                    ),
             ),
           ),
           Expanded(

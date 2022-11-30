@@ -35,53 +35,75 @@ class ProductScreen extends StatelessWidget {
         children: [
           CarouselSlider(
             options: CarouselOptions(
-              aspectRatio: 1.5,
-              viewportFraction: 0.9,
+              aspectRatio: MediaQuery.of(context).size.width * 0.005,
+              viewportFraction: 1,
               enlargeCenterPage: true,
               enlargeStrategy: CenterPageEnlargeStrategy.height,
             ),
             items: [CarouselCard(product: product)],
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.05,
+          ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.05,
+            ),
             child: Column(
               children: [
                 Stack(
                   children: <Widget>[
                     Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
+                      width: MediaQuery.of(context).size.width * 1,
+                      height: MediaQuery.of(context).size.width * 0.15,
                       alignment: Alignment.bottomCenter,
                       decoration: BoxDecoration(
-                        color: Colors.black.withAlpha(50),
+                        color: Colors.black.withAlpha(
+                          50,
+                        ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(5.0),
-                      width: MediaQuery.of(context).size.width - 10,
-                      height: 50,
+                      margin: EdgeInsets.all(
+                        MediaQuery.of(context).size.width * 0.015,
+                      ),
+                      width: MediaQuery.of(context).size.width * 1,
+                      height: MediaQuery.of(context).size.width * 0.12,
                       decoration: BoxDecoration(
                         color: Color(0xFF73716F),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.05,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
                               product.name,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline5!
-                                  .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
+                              style: TextStyle(
+                                fontFamily: 'Avenir',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.05,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
                             ),
+                            //   style: Theme.of(context)
+                            //       .textTheme
+                            //       .headline5!
+                            //       .copyWith(
+                            //           color:
+                            //               Color.fromARGB(255, 255, 255, 255)),
+                            // ),
                             Text(
                               '\฿${product.price}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline5!
-                                  .copyWith(color: Color.fromARGB(255, 255, 255, 255)),
+                              style: TextStyle(
+                                fontFamily: 'Avenir',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.05,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
                             ),
                           ],
                         ),
@@ -89,17 +111,29 @@ class ProductScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width * 0.05,
+                ),
                 ExpansionTile(
                   initiallyExpanded: true,
                   title: Text(
                     "Product Information",
-                    style: Theme.of(context).textTheme.headline3,
+                    style: TextStyle(
+                      fontFamily: 'Avenir',
+                      fontSize: MediaQuery.of(context).size.width * 0.05,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   children: <Widget>[
                     ListTile(
                       title: Text(
                         product.description.toString(),
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          color: Colors.black,
+                        ),
                       ),
                     )
                   ],
@@ -108,13 +142,22 @@ class ProductScreen extends StatelessWidget {
                   initiallyExpanded: true,
                   title: Text(
                     "Delivery Information",
-                    style: Theme.of(context).textTheme.headline3,
+                    style: TextStyle(
+                      fontFamily: 'Avenir',
+                      fontSize: MediaQuery.of(context).size.width * 0.05,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   children: <Widget>[
                     ListTile(
                       title: Text(
                         'ค่าส่ง 20 บาท ตลอด ไม่คิดพิ่มจ้าา',
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          color: Colors.black,
+                        ),
                       ),
                     )
                   ],

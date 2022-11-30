@@ -39,9 +39,9 @@ class CatalogScreen extends StatelessWidget {
                 .toList();
 
             return GridView.builder(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8.0,
-                vertical: 16.0,
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.015,
+                vertical: MediaQuery.of(context).size.width * 0.015,
               ),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

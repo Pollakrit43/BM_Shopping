@@ -23,8 +23,8 @@ class CarouselCard extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(
-          horizontal: 5.0,
-          vertical: 20,
+          horizontal: MediaQuery.of(context).size.width * 0.02,
+          vertical: MediaQuery.of(context).size.width * 0.02,
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(5.0)),
