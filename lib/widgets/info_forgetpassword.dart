@@ -4,9 +4,9 @@ import 'package:flutter_ecom/account_check/account_check.dart';
 import 'package:flutter_ecom/screens/screens.dart';
 import 'package:flutter_ecom/widgets/button_square.dart';
 import 'package:flutter_ecom/widgets/input_field.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InfoForgetPassword extends StatefulWidget {
-
   InfoForgetPassword({super.key});
 
   @override
@@ -22,7 +22,9 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(50),
+      padding: EdgeInsets.all(
+        MediaQuery.of(context).size.width * 0.05,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +37,7 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           InputField(
             hintText: 'Enter Email',
@@ -44,7 +46,7 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
             textEditingController: _emailTextController,
           ),
           SizedBox(
-            height: 15,
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           ButtonSquare(
             text: 'Send to Email',
@@ -81,19 +83,39 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
               );
             },
           ),
-
-          TextButton(
-            onPressed: () {
-               Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (_) {
-                    return RegisterScreen();
-                  },
+          // SizedBox(
+          //   height: MediaQuery.of(context).size.width * 0.05,
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'If you don\'t have any account',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                 ),
-              );
-            },
-            child: Center(child: Text('Create Account')),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) {
+                        return RegisterScreen();
+                      },
+                    ),
+                  );
+                },
+                child: Center(
+                  child: Text(
+                    'Create Account',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           AccountCheck(
             login: false,

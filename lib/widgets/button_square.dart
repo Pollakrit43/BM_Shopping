@@ -20,12 +20,12 @@ class ButtonSquare extends StatelessWidget {
       onTap: press,
       child: Padding(
         padding: EdgeInsets.only(
-          top: 6,
-          bottom: 6,
+          top: MediaQuery.of(context).size.height *0.005,
+          bottom: MediaQuery.of(context).size.width *0.005,
         ),
         child: Container(
           width: double.infinity,
-          height: 65,
+          height: MediaQuery.of(context).size.height *0.08,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             gradient: LinearGradient(
@@ -55,7 +55,7 @@ class ButtonSquare extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: MediaQuery.of(context).size.height *0.03,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),

@@ -9,8 +9,8 @@ class HeadTextRegister extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 15,
+        horizontal: size.width * 0.005,
+        vertical: size.height * 0.005,
       ),
       child: Column(
         children: [
@@ -21,20 +21,20 @@ class HeadTextRegister extends StatelessWidget {
             child: Text(
               'BM Shopping',
               style: GoogleFonts.robotoMono(
-                fontSize: 40,
+                fontSize: size.width * 0.09,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // SizedBox(
+          //   height: size.width * 0.05,
+          // ),
           Center(
             child: Text(
               'Create Account',
-               style: GoogleFonts.robotoMono(
+              style: GoogleFonts.robotoMono(
                 color: Colors.black87,
-                fontSize: 30,
+                fontSize: size.width * 0.05,
                 fontWeight: FontWeight.bold,
               ),
             ),

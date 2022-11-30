@@ -117,8 +117,11 @@ class _InfoRegisterState extends State<InfoRegister> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(
-        50,
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).size.width * 0.05,
+        left: MediaQuery.of(context).size.width * 0.05,
+        right: MediaQuery.of(context).size.width * 0.05,
+        bottom: MediaQuery.of(context).size.width * 0.05,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,36 +139,36 @@ class _InfoRegisterState extends State<InfoRegister> {
                   : Image.file(imageFile!).image,
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           InputField(
             hintText: 'Enter FullName',
             icon: Icons.person,
             obscureText: false,
             textEditingController: _fullNameController,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           InputField(
             hintText: 'Enter Email',
             icon: Icons.email_rounded,
             obscureText: false,
             textEditingController: _emailTextController,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           InputField(
             hintText: 'Enter Password',
             icon: Icons.lock,
             obscureText: true,
             textEditingController: _passwordTextController,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           InputField(
             hintText: 'Enter PhoneNumber',
             icon: Icons.phone,
@@ -173,7 +176,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             textEditingController: _phoneNumberController,
           ),
           SizedBox(
-            height: 15,
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           ButtonSquare(
             text: "Create Account",
@@ -224,20 +227,22 @@ class _InfoRegisterState extends State<InfoRegister> {
                   ),
                 );
               }
-              
             },
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           AccountCheck(
             login: false,
             press: () {
-               Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return LoginScreen();
+                  },
+                ),
+              );
             },
           ),
         ],

@@ -17,27 +17,27 @@ class AccountCheck extends StatelessWidget {
         Text(
           login ? "Don't have an Account!" : "Already have an Account?",
           style: TextStyle(
-            fontSize: 16,
+            fontSize: MediaQuery.of(context).size.width * 0.04,
             color: Colors.black,
           ),
         ),
         SizedBox(
-          width: 10.0,
+          width: MediaQuery.of(context).size.width * 0.03,
         ),
         GestureDetector(
           onTap: press,
           child: Text(
             login ? "Create Account" : "Log in",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               color: Colors.blue,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        SizedBox(
-          height: 50.0,
-        ),
+        // SizedBox(
+        //   height: MediaQuery.of(context).size.width * 0.05,
+        // ),
       ],
     );
   }

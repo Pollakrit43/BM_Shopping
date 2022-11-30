@@ -5,7 +5,6 @@ import 'package:flutter_ecom/screens/screens.dart';
 import 'package:flutter_ecom/widgets/widget.dart';
 
 class InfoLogin extends StatefulWidget {
-
   InfoLogin({super.key});
 
   @override
@@ -25,7 +24,7 @@ class _InfoLoginState extends State<InfoLogin> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(
-        50,
+        MediaQuery.of(context).size.width * 0.05,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,27 +37,27 @@ class _InfoLoginState extends State<InfoLogin> {
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // SizedBox(
+          //   height: MediaQuery.of(context).size.width * 0.05,
+          // ),
           InputField(
             hintText: 'Enter Email',
             icon: Icons.email_rounded,
             obscureText: false,
             textEditingController: _emailTextController,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: 10,
+          // ),
           InputField(
             hintText: 'Enter Password',
             icon: Icons.lock,
             obscureText: true,
             textEditingController: _passwordTextController,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          // SizedBox(
+          //   height: MediaQuery.of(context).size.width * 0.02,
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -79,14 +78,14 @@ class _InfoLoginState extends State<InfoLogin> {
                   style: TextStyle(
                     color: Colors.black54,
                     fontWeight: FontWeight.bold,
-                    fontSize: 17,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                   ),
                 ),
               ),
             ],
           ),
           SizedBox(
-            height: 10,
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           ButtonSquare(
             text: 'Login',
@@ -100,33 +99,36 @@ class _InfoLoginState extends State<InfoLogin> {
                 );
                 //HomeScreen
                 Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) {
-                        return HomeScreen();
-                      },
-                    ),
-                  );
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return HomeScreen();
+                    },
+                  ),
+                );
               } catch (error) {
-                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(error.toString()),
-                    ),
-                  );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(error.toString()),
+                  ),
+                );
               }
             },
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.05,
           ),
           AccountCheck(
             login: true,
             press: () {
-               Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) {
-                        return RegisterScreen();
-                      },
-                    ),
-                  );
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) {
+                    return RegisterScreen();
+                  },
+                ),
+              );
             },
           ),
         ],

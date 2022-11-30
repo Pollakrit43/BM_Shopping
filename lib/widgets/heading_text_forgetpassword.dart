@@ -6,35 +6,34 @@ class HeadTextForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 15,
+      padding: EdgeInsets.all(
+        size.width * 0.05,
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: size.height * 0.05,
-          ),
+          // SizedBox(
+          //   height: size.height * 0.005,
+          // ),
           Center(
             child: Text(
               'Forget Password',
               style: GoogleFonts.robotoMono(
-                fontSize: 38,
+                fontSize: size.height * 0.05,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           SizedBox(
-            height: 20,
+            height: size.width * 0.05,
           ),
           Center(
             child: Text(
               'Reset Here',
-               style: GoogleFonts.robotoMono(
+              style: GoogleFonts.robotoMono(
                 color: Colors.black87,
-                fontSize: 30,
+                fontSize: size.height * 0.04,
                 fontWeight: FontWeight.bold,
               ),
             ),
