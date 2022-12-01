@@ -62,7 +62,8 @@ class OrderConfirmation extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontFamily: 'Avenir',
-                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.05,
                               color: Color.fromARGB(255, 0, 0, 0),
                               fontWeight: FontWeight.bold,
                             ),
@@ -91,27 +92,6 @@ class OrderConfirmation extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.width * 0.05,
                         ),
-                        // SizedBox(
-                        //   width: double.infinity,
-                        //   height: MediaQuery.of(context).size.width * 0.15,
-                        //   child: ElevatedButton(
-                        //     style: ElevatedButton.styleFrom(
-                        //         primary: Color.fromARGB(255, 0, 174, 255)),
-                        //     child: Text(
-                        //       'Go Home Page',
-                        //       style: TextStyle(
-                        //         fontFamily: 'Avenir',
-                        //         fontSize:
-                        //             MediaQuery.of(context).size.width * 0.045,
-                        //         color: Color.fromARGB(255, 0, 0, 0),
-                        //         fontWeight: FontWeight.bold,
-                        //       ),
-                        //     ),
-                        //     onPressed: () {
-                        //       Navigator.pushNamed(context, '/');
-                        //     },
-                        //   ),
-                        // ),
                         Text(
                           'Order Details',
                           style: TextStyle(
@@ -127,7 +107,7 @@ class OrderConfirmation extends StatelessWidget {
                         //   height: 5,
                         // ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.width * 0.90,
+                          height: MediaQuery.of(context).size.width * 0.4,
                           child: ListView.builder(
                             itemCount: cart.keys.length,
                             itemBuilder: (BuildContext context, int index) {
@@ -135,6 +115,30 @@ class OrderConfirmation extends StatelessWidget {
                                 product: cart.keys.elementAt(index),
                                 quantity: cart.values.elementAt(index),
                               );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.width * 0.05,
+                        ),
+                        SizedBox(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.width * 0.15,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 0, 174, 255)),
+                            child: Text(
+                              'Go Home Page',
+                              style: TextStyle(
+                                fontFamily: 'Avenir',
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.045,
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/');
                             },
                           ),
                         ),
