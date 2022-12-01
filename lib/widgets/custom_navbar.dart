@@ -187,9 +187,9 @@ class OrderNowNavBar extends StatelessWidget {
               return ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.white),
                 onPressed: () {
-                  context
-                      .read<CheckoutBloc>()
-                      .add(ConfirmCheckout(checkout: state.checkout));
+                  // context
+                  //     .read<CheckoutBloc>()
+                  //     .add(ConfirmCheckout(checkout: state.checkout));
                   Navigator.pushNamed(context, '/order-confirmation');
                 },
                 child: Text(
