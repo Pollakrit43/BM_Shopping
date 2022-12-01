@@ -98,12 +98,18 @@ class _InfoLoginState extends State<InfoLogin> {
                   password: _passwordTextController.text.trim(),
                 );
                 //HomeScreen
-                Navigator.pushReplacement(
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (_) {
+                //       return HomeScreen();
+                //     },
+                //   ),
+                // );
+                 Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: (_) {
-                      return HomeScreen();
-                    },
+                    builder: (context) => HomeScreen(),
                   ),
                 );
               } catch (error) {

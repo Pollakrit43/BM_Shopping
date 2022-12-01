@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/models/models.dart';
 import 'package:flutter_ecom/widgets/widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
