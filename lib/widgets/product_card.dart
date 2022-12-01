@@ -88,15 +88,19 @@ class ProductCard extends StatelessWidget {
       },
       child: isCart || isSummary
           ? Padding(
-              padding: const EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.width * 0.05,
+              ),
               child: Row(
                 children: [
                   ProductImage(
-                    adjWidth: 100,
-                    height: height,
+                    adjWidth: MediaQuery.of(context).size.width * 0.25,
+                    height: height - MediaQuery.of(context).size.width * 0.05,
                     product: product,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   Expanded(
                     child: ProductInformation(
                       product: product,
@@ -105,7 +109,9 @@ class ProductCard extends StatelessWidget {
                       isOrderSummary: isSummary ? true : false,
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   ProductActions(
                     product: product,
                     isCatalog: isCatalog,
@@ -121,12 +127,12 @@ class ProductCard extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 ProductImage(
-                  adjWidth: adjWidth,
-                  height: height,
+                  adjWidth: adjWidth - MediaQuery.of(context).size.width * 0.05,
+                  height: height - MediaQuery.of(context).size.width * 0.05,
                   product: product,
                 ),
                 ProductBackground(
-                  adjWidth: adjWidth,
+                  adjWidth: adjWidth - MediaQuery.of(context).size.width * 0.02,
                   widgets: [
                     ProductInformation(
                       product: product,
@@ -162,8 +168,8 @@ class ProductImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: adjWidth,
-      height: height,
+      width: adjWidth - MediaQuery.of(context).size.width * 0.005,
+      height: height - MediaQuery.of(context).size.width * 0.005,
       child: Image.network(
         product.imageUrl,
         fit: BoxFit.cover,
@@ -196,7 +202,7 @@ class ProductInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 85,
+              width: MediaQuery.of(context).size.width * 0.2,
               child: Text(
                 product.name,
                 maxLines: 1,
@@ -204,6 +210,7 @@ class ProductInformation extends StatelessWidget {
                   fontFamily: 'Avenir',
                   fontSize: MediaQuery.of(context).size.width * 0.04,
                   color: fontColor,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -219,14 +226,15 @@ class ProductInformation extends StatelessWidget {
         ),
         isOrderSummary
             ? Text(
-                'Qty. $quantity',
+                'Quantity - $quantity',
                 style: TextStyle(
                   fontFamily: 'Avenir',
                   fontSize: MediaQuery.of(context).size.width * 0.04,
                   color: fontColor,
+                  fontWeight: FontWeight.bold,
                 ),
               )
-            : const SizedBox(),
+            : SizedBox(),
       ],
     );
   }

@@ -37,27 +37,29 @@ class _InfoLoginState extends State<InfoLogin> {
               ),
             ),
           ),
-          // SizedBox(
-          //   height: MediaQuery.of(context).size.width * 0.05,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.02,
+          ),
           InputField(
             hintText: 'Enter Email',
             icon: Icons.email_rounded,
             obscureText: false,
             textEditingController: _emailTextController,
+            keyboardtType: TextInputType.emailAddress,
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           InputField(
             hintText: 'Enter Password',
             icon: Icons.lock,
             obscureText: true,
             textEditingController: _passwordTextController,
+            keyboardtType: TextInputType.text,
           ),
-          // SizedBox(
-          //   height: MediaQuery.of(context).size.width * 0.02,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -106,7 +108,7 @@ class _InfoLoginState extends State<InfoLogin> {
                 //     },
                 //   ),
                 // );
-                 Navigator.pop(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(
                     builder: (context) => HomeScreen(),

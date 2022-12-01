@@ -147,6 +147,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             icon: Icons.person,
             obscureText: false,
             textEditingController: _fullNameController,
+            keyboardtType: TextInputType.name,
           ),
           // SizedBox(
           //   height: 10,
@@ -156,6 +157,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             icon: Icons.email_rounded,
             obscureText: false,
             textEditingController: _emailTextController,
+            keyboardtType: TextInputType.emailAddress,
           ),
           // SizedBox(
           //   height: 10,
@@ -165,6 +167,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             icon: Icons.lock,
             obscureText: true,
             textEditingController: _passwordTextController,
+            keyboardtType: TextInputType.text,
           ),
           // SizedBox(
           //   height: 10,
@@ -174,6 +177,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             icon: Icons.phone,
             obscureText: false,
             textEditingController: _phoneNumberController,
+            keyboardtType: TextInputType.number,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width * 0.05,

@@ -44,6 +44,7 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
             icon: Icons.email_rounded,
             obscureText: false,
             textEditingController: _emailTextController,
+            keyboardtType: TextInputType.emailAddress,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.width * 0.05,

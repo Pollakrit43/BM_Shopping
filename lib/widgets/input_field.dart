@@ -6,12 +6,14 @@ class InputField extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
   final TextEditingController textEditingController;
+  final TextInputType keyboardtType;
   const InputField({
     super.key,
     required this.hintText,
     required this.icon,
     required this.obscureText,
     required this.textEditingController,
+    required this.keyboardtType,
   });
 
   @override
@@ -21,6 +23,7 @@ class InputField extends StatelessWidget {
         cursorColor: Colors.black,
         obscureText: obscureText,
         controller: textEditingController,
+        keyboardType: keyboardtType,
         decoration: InputDecoration(
           hintText: hintText,
           helperStyle: TextStyle(
