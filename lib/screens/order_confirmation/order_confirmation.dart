@@ -31,122 +31,131 @@ class OrderConfirmation extends StatelessWidget {
           }
           if (state is CartLoaded) {
             Map cart = state.cart.productQuantity(state.cart.products);
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  Stack(
+            return Column(
+              children: [
+                // Stack(
+                //   children: [
+                //     Container(
+                //       color: Color(0xFF73716F),
+                //       width: double.infinity,
+                //       height: MediaQuery.of(context).size.width * 0.5,
+                //     ),
+                //     Padding(
+                //       padding: EdgeInsets.only(
+                //         top: MediaQuery.of(context).size.width * 0.05,
+                //       ),
+                //       child: Center(
+                //         child: SvgPicture.asset(
+                //           'assets/svgs/pencil.svg',
+                //           height: MediaQuery.of(context).size.width * 0.3,
+                //         ),
+                //       ),
+                //     ),
+                //     Padding(
+                //       padding: EdgeInsets.only(
+                //         top: MediaQuery.of(context).size.width * 0.4,
+                //       ),
+                //       child: Center(
+                //         child: Text(
+                //           'Order is complete!',
+                //           textAlign: TextAlign.center,
+                //           style: TextStyle(
+                //             fontFamily: 'Avenir',
+                //             fontSize:
+                //                 MediaQuery.of(context).size.width * 0.05,
+                //             color: Color.fromARGB(255, 0, 0, 0),
+                //             fontWeight: FontWeight.bold,
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                Padding(
+                  padding: EdgeInsets.all(
+                    MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        color: Color(0xFF73716F),
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.width * 0.5,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.width * 0.05,
-                        ),
-                        child: Center(
-                          child: SvgPicture.asset(
-                            'assets/svgs/pencil.svg',
-                            height: MediaQuery.of(context).size.width * 0.3,
-                          ),
+                      Text(
+                        'Thank you for purchasing on BM Shopping',
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.width * 0.4,
+                      OrderSummary(),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      Text(
+                        'Order Details',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                         ),
-                        child: Center(
-                          child: Text(
-                            'Order is complete!',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontFamily: 'Avenir',
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.05,
-                              color: Color.fromARGB(255, 0, 0, 0),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                      ),
+                      Divider(
+                        thickness: 2,
+                      ),
+                      SizedBox(
+                         height: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width * 0.4,
+                        child: ListView.builder(
+                          itemCount: cart.keys.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ProductCard.summary(
+                              product: cart.keys.elementAt(index),
+                              quantity: cart.values.elementAt(index),
+                            );
+                          },
                         ),
+                      ),
+                      SizedBox(
+                         height: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      Divider(
+                        thickness: 2,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.width * 0.05,
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(
-                      MediaQuery.of(context).size.width * 0.05,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Thank you for purchasing on BM Shopping',
-                          style: TextStyle(
-                            fontFamily: 'Avenir',
-                            fontSize: MediaQuery.of(context).size.width * 0.045,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            fontWeight: FontWeight.bold,
-                          ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    // top: MediaQuery.of(context).size.width * 0.05,
+                    bottom: MediaQuery.of(context).size.width * 0.05,
+                  ),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.width * 0.15,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 0, 174, 255)),
+                      child: Text(
+                        'Go Home Page',
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
                         ),
-                        OrderSummary(),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.width * 0.05,
-                        ),
-                        Text(
-                          'Order Details',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: MediaQuery.of(context).size.width * 0.05,
-                          ),
-                        ),
-                        Divider(
-                          thickness: 2,
-                        ),
-                        // SizedBox(
-                        //   height: 5,
-                        // ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.width * 0.4,
-                          child: ListView.builder(
-                            itemCount: cart.keys.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return ProductCard.summary(
-                                product: cart.keys.elementAt(index),
-                                quantity: cart.values.elementAt(index),
-                              );
-                            },
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.width * 0.05,
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.width * 0.15,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 0, 174, 255)),
-                            child: Text(
-                              'Go Home Page',
-                              style: TextStyle(
-                                fontFamily: 'Avenir',
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.045,
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/');
-                            },
-                          ),
-                        ),
-                      ],
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/');
+                      },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
           } else {
             return Text('Something went wrong');
