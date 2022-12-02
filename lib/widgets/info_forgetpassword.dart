@@ -4,7 +4,7 @@ import 'package:flutter_ecom/account_check/account_check.dart';
 import 'package:flutter_ecom/screens/screens.dart';
 import 'package:flutter_ecom/widgets/button_square.dart';
 import 'package:flutter_ecom/widgets/input_field.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class InfoForgetPassword extends StatefulWidget {
   InfoForgetPassword({super.key});
@@ -61,27 +61,72 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
                   SnackBar(
                     content: Text(
                       'Password reset email has been sent!',
+                      textAlign: TextAlign.start,
                       style: TextStyle(
-                        fontSize: 18.0,
+                        fontFamily: 'Avenir',
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 );
-              } on FirebaseAuthException catch (error) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(error.toString()),
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return LoginScreen();
+                    },
                   ),
                 );
+              } on FirebaseAuthException catch (error) {
+                if (_emailTextController.text.trim().isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.grey,
+                      content: Text(
+                        'กรุณาป้อนอีเมลด้วย',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.grey,
+                      content: Text(
+                        error.toString(),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(
+                //     content: Text(error.toString()),
+                //   ),
+                // );
               }
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (_) {
-                    return LoginScreen();
-                  },
-                ),
-              );
+              // Navigator.pushReplacement(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (_) {
+              //       return LoginScreen();
+              //     },
+              //   ),
+              // );
             },
           ),
           // SizedBox(

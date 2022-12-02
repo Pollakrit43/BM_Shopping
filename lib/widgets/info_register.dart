@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,99 @@ class _InfoRegisterState extends State<InfoRegister> {
       TextEditingController(text: "");
   final TextEditingController _phoneNumberController =
       TextEditingController(text: "");
+
+  void ValidateRegister() {
+    bool _isValid = false;
+
+    _isValid = EmailValidator.validate(_emailTextController.text.trim());
+    if (imageFile == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Please select an Image'),
+        ),
+      );
+    } else if (_fullNameController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนชื่อด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    } else if (!_isValid) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนอีเมลด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    } else if (_passwordTextController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนรหัสผ่านด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    } else if (_passwordTextController.text.trim().length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนรหัสมากกว่า 6 ตัวด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    } else if (_phoneNumberController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนเบอร์โทรด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    }
+  }
 
   File? imageFile;
   String? imageUrl;
@@ -139,9 +233,9 @@ class _InfoRegisterState extends State<InfoRegister> {
                   : Image.file(imageFile!).image,
             ),
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           InputField(
             hintText: 'Enter FullName',
             icon: Icons.person,
@@ -149,9 +243,9 @@ class _InfoRegisterState extends State<InfoRegister> {
             textEditingController: _fullNameController,
             keyboardtType: TextInputType.name,
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           InputField(
             hintText: 'Enter Email',
             icon: Icons.email_rounded,
@@ -159,9 +253,9 @@ class _InfoRegisterState extends State<InfoRegister> {
             textEditingController: _emailTextController,
             keyboardtType: TextInputType.emailAddress,
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           InputField(
             hintText: 'Enter Password',
             icon: Icons.lock,
@@ -169,9 +263,9 @@ class _InfoRegisterState extends State<InfoRegister> {
             textEditingController: _passwordTextController,
             keyboardtType: TextInputType.text,
           ),
-          // SizedBox(
-          //   height: 10,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.width * 0.01,
+          ),
           InputField(
             hintText: 'Enter PhoneNumber',
             icon: Icons.phone,
@@ -187,13 +281,7 @@ class _InfoRegisterState extends State<InfoRegister> {
             colors1: Colors.white60,
             colors2: Colors.white60,
             press: () async {
-              if (imageFile == null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Please select an Image'),
-                  ),
-                );
-              }
+              ValidateRegister();
               try {
                 final ref = FirebaseStorage.instance
                     .ref()
@@ -224,13 +312,7 @@ class _InfoRegisterState extends State<InfoRegister> {
                     },
                   ),
                 );
-              } catch (error) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(error.toString()),
-                  ),
-                );
-              }
+              } catch (error) {}
             },
           ),
           SizedBox(

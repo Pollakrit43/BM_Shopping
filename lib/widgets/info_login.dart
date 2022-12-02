@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecom/account_check/account_check.dart';
@@ -19,6 +20,45 @@ class _InfoLoginState extends State<InfoLogin> {
 
   final TextEditingController _passwordTextController =
       TextEditingController(text: '');
+
+  void ValidateLogin() {
+    bool _isValid = false;
+    _isValid = EmailValidator.validate(_emailTextController.text.trim());
+
+    if (!_isValid) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนอีเมลด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    } else if (_passwordTextController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.grey,
+          content: Text(
+            'กรุณาป้อนรหัสผ่านด้วย',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              fontFamily: 'Avenir',
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,12 +154,13 @@ class _InfoLoginState extends State<InfoLogin> {
                     builder: (context) => HomeScreen(),
                   ),
                 );
-              } catch (error) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(error.toString()),
-                  ),
-                );
+              } on FirebaseAuthException catch (error) {
+                ValidateLogin();
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   SnackBar(
+                //     content: Text(error.toString()),
+                //   ),
+                // );
               }
             },
           ),
