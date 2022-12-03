@@ -19,7 +19,7 @@ class PaymentSelect extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFD9D8D7),
-      appBar: CustomAppBar(title: 'Payment select'),
+      appBar: CustomAppBar(title: 'Payment'),
       bottomNavigationBar: CustomNavBar(screen: routeName),
       body: BlocBuilder<PaymentBloc, PaymentState>(
         builder: (context, state) {

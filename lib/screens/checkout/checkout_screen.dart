@@ -124,7 +124,7 @@ class CheckoutScreen extends StatelessWidget {
                                 );
                               },
                               child: Text(
-                                'Select a payment',
+                                'Payment',
                                 style: TextStyle(
                                   fontFamily: 'Avenir',
                                   fontSize:
