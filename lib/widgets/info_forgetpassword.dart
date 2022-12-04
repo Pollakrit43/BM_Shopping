@@ -5,7 +5,6 @@ import 'package:flutter_ecom/screens/screens.dart';
 import 'package:flutter_ecom/widgets/button_square.dart';
 import 'package:flutter_ecom/widgets/input_field.dart';
 
-
 class InfoForgetPassword extends StatefulWidget {
   InfoForgetPassword({super.key});
 
@@ -56,7 +55,8 @@ class _InfoForgetPasswordState extends State<InfoForgetPassword> {
             press: () async {
               try {
                 await _auth.sendPasswordResetEmail(
-                    email: _emailTextController.text);
+                  email: _emailTextController.text,
+                );
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
