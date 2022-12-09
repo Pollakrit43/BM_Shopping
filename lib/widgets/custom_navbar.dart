@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ecom/blocs/cart/cart_bloc.dart';
@@ -187,10 +190,28 @@ class OrderNowNavBar extends StatelessWidget {
               return ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.white),
                 onPressed: () {
-                  // context
-                  //     .read<CheckoutBloc>()
-                  //     .add(ConfirmCheckout(checkout: state.checkout));
-                  Navigator.pushNamed(context, '/order-confirmation');
+                  try {
+                    context
+                        .read<CheckoutBloc>()
+                        .add(ConfirmCheckout(checkout: state.checkout));
+
+                    Navigator.pushNamed(context, '/order-confirmation');
+                  } catch (e) {}
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: Colors.grey,
+                      content: Text(
+                        e.toString(),
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
                 },
                 child: Text(
                   'Order confirm',
