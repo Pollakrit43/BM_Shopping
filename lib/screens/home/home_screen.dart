@@ -51,6 +51,9 @@ class HomeScreen extends StatelessWidget {
                 }
               },
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.02,
+            ),
             SectionTitle(title: 'Recommended'),
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.02,
@@ -72,6 +75,9 @@ class HomeScreen extends StatelessWidget {
                   return Text('Something went wrong.');
                 }
               },
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.02,
             ),
             SectionTitle(title: 'Most popular'),
             SizedBox(

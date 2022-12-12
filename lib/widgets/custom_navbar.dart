@@ -83,10 +83,10 @@ class AddToCartNavBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        IconButton(
-          icon: Icon(Icons.share, color: Colors.white),
-          onPressed: () {},
-        ),
+        // IconButton(
+        //   icon: Icon(Icons.share, color: Colors.white),
+        //   onPressed: () {},
+        // ),
         BlocBuilder<WishlistBloc, WishlistState>(
           builder: (context, state) {
             if (state is WishlistLoading) {
