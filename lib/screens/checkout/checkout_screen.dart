@@ -47,6 +47,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'Email',
+                      inputTT: TextInputType.emailAddress,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()
@@ -55,6 +56,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'Full Name',
+                      inputTT: TextInputType.name,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()
@@ -75,6 +77,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'Address',
+                      inputTT: TextInputType.streetAddress,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()
@@ -83,6 +86,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'City',
+                      inputTT: TextInputType.streetAddress,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()
@@ -91,6 +95,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'Country',
+                      inputTT: TextInputType.streetAddress,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()
@@ -99,6 +104,7 @@ class CheckoutScreen extends StatelessWidget {
                     ),
                     CustomTextFormField(
                       title: 'ZIP Code',
+                      inputTT: TextInputType.number,
                       onChanged: (value) {
                         context
                             .read<CheckoutBloc>()

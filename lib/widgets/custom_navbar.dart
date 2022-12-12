@@ -196,22 +196,23 @@ class OrderNowNavBar extends StatelessWidget {
                         .add(ConfirmCheckout(checkout: state.checkout));
 
                     Navigator.pushNamed(context, '/order-confirmation');
-                  } catch (e) {}
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      backgroundColor: Colors.grey,
-                      content: Text(
-                        e.toString(),
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontFamily: 'Avenir',
-                          fontSize: MediaQuery.of(context).size.width * 0.04,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.grey,
+                        content: Text(
+                          e.toString(),
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontFamily: 'Avenir',
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  );
+                    );
+                  }
                 },
                 child: Text(
                   'Order confirm',
