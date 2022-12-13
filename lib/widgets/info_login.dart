@@ -154,13 +154,13 @@ class _InfoLoginState extends State<InfoLogin> {
                     builder: (context) => HomeScreen(),
                   ),
                 );
-              } on FirebaseAuthException catch (error) {
+              } catch (error) {
                 ValidateLogin();
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //   SnackBar(
-                //     content: Text(error.toString()),
-                //   ),
-                // );
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(error.toString()),
+                  ),
+                );
               }
             },
           ),
